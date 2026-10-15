@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gas Bill Calculator Pakistan 2026 — Estimate SNGPL &amp; SSGC Charges</title>
+<meta name="description" content="Free gas bill calculator for Pakistan. Enter your monthly gas usage in hm³ to estimate your SNGPL/SSGC bill with 2026 slab rates, fixed charges and GST.">
+<link rel="canonical" href="https://gasbillcheck.pk/calculator.html">
+<meta property="og:title" content="Gas Bill Calculator Pakistan — Estimate Your Sui Gas Bill">
+<meta property="og:description" content="Estimate your monthly SNGPL/SSGC gas bill with 2026 slab rates. Free and instant.">
+<meta property="og:type" content="website">
+<meta name="robots" content="index, follow">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html">Gas<span>Bill</span>Check.pk</a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="calculator.html" class="active">Bill Calculator</a>
+      <a href="sngpl-bill.html">SNGPL Bill</a>
+      <a href="ssgc-bill.html">SSGC Bill</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <h1>Gas Bill Calculator Pakistan 2026</h1>
+    <p class="sub">Estimate your monthly Sui gas bill from your meter reading — with 2026 slab rates, fixed charges and GST.</p>
+  </div>
+</div>
+
+<main class="wrap">
+  <div class="tool-card">
+    <h2>Estimate Your Bill</h2>
+    <form id="calc-form">
+      <div class="field">
+        <label for="usage">Monthly gas usage (hm³)</label>
+        <input type="number" id="usage" step="0.01" min="0.01" placeholder="e.g. 0.75" required>
+        <p class="hint">1 hm³ ≈ 35.3 cubic feet. Find it on your old bill as "units consumed".</p>
+      </div>
+      <div class="field">
+        <label for="category">Consumer category</label>
+        <select id="category">
+          <option value="auto">Auto (≤ 0.9 hm³ = Protected)</option>
+          <option value="protected">Protected</option>
+          <option value="non-protected">Non-Protected</option>
+        </select>
+      </div>
+      <button class="btn brand" type="submit">Calculate Bill</button>
+    </form>
+    <div class="result" id="calc-result"></div>
+  </div>
+
+  <section class="block">
+    <h2>2026 Domestic Gas Slab Rates (Rs per MMBtu)</h2>
+    <h3>Protected consumers</h3>
+    <table class="rates">
+      <tr><th>Monthly use</th><th>Rate / MMBtu</th></tr>
+      <tr><td>Up to 0.25 hm³</td><td>Rs 200</td></tr>
+      <tr><td>Up to 0.50 hm³</td><td>Rs 250</td></tr>
+      <tr><td>Up to 0.60 hm³</td><td>Rs 300</td></tr>
+      <tr><td>Up to 0.90 hm³</td><td>Rs 350</td></tr>
+    </table>
+    <p>Fixed charges: Rs 600/month + Rs 40 meter rent.</p>
+    <h3>Non-protected consumers</h3>
+    <table class="rates">
+      <tr><th>Monthly use</th><th>Rate / MMBtu</th></tr>
+      <tr><td>Up to 0.25 hm³</td><td>Rs 500</td></tr>
+      <tr><td>Up to 0.60 hm³</td><td>Rs 850</td></tr>
+      <tr><td>Up to 1.00 hm³</td><td>Rs 1,250</td></tr>
+      <tr><td>Up to 1.50 hm³</td><td>Rs 1,450</td></tr>
+      <tr><td>Up to 2.00 hm³</td><td>Rs 1,900</td></tr>
+      <tr><td>Up to 3.00 hm³</td><td>Rs 3,300</td></tr>
+      <tr><td>Up to 4.00 hm³</td><td>Rs 3,800</td></tr>
+      <tr><td>Above 4.00 hm³</td><td>Rs 4,200</td></tr>
+    </table>
+    <p>Fixed charges: Rs 1,500/month (up to 1.5 hm³) or Rs 3,000/month (above 1.5 hm³) + Rs 40 meter rent. GST ~18% applies on top.</p>
+    <p class="disclaimer">Rates are publicly reported 2026 figures and can change. The government plans a single gas tariff from July 2027. Always confirm with your official bill.</p>
+  </section>
+
+  <section class="block">
+    <h2>Check Your Actual Bill Too</h2>
+    <p>Estimates are handy, but your real payable amount is on the official bill. <a href="index.html">Check your gas bill online</a> with your consumer number — SNGPL or SSGC, free in seconds.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <strong style="color:#fff">GasBillCheck.pk</strong><br>
+      <a href="index.html">Home</a> · <a href="calculator.html">Calculator</a> · <a href="sngpl-bill.html">SNGPL</a> · <a href="ssgc-bill.html">SSGC</a>
+    </div>
+    <p>Estimates only — not affiliated with SNGPL, SSGC or the government. Tariffs change; verify with official sources.</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
