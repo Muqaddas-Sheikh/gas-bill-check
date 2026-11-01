@@ -1,0 +1,45 @@
+/* Suigas-style plain, phone-friendly stylesheet for the gas-bill ready pack.
+   Simple, trustworthy, no gradients, no glass, no heavy cards. DO NOT OVERWRITE
+   if you are a batch builder — read this file, link to it, leave it unchanged. */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:#ffffff;color:#222222;line-height:1.7;font-size:17px}
+a{color:#0b6e4f;text-decoration:underline}
+a:hover{color:#095c42}
+.wrap{max-width:900px;margin:0 auto;padding:0 16px}
+header.site-header{border-bottom:3px solid #0b6e4f;padding:14px 0;background:#ffffff}
+header .wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.logo{font-weight:800;font-size:1.2rem;color:#10233b;text-decoration:none}
+.logo span{color:#0b6e4f}
+nav.nav{display:flex;flex-wrap:wrap;gap:14px;font-size:.95rem}
+nav.nav a{text-decoration:none;font-weight:600}
+.hero{padding:28px 0 10px}
+.hero h1{font-size:1.9rem;line-height:1.3;margin-bottom:10px;color:#10233b}
+.hero p{color:#444444;margin-bottom:12px}
+h2{font-size:1.35rem;margin:26px 0 10px;color:#10233b}
+h3{font-size:1.1rem;margin:20px 0 8px;color:#10233b}
+p,li{margin-bottom:10px}
+ul,ol{padding-left:22px}
+section.block{margin-bottom:22px}
+.tool-box{border:2px solid #0b6e4f;border-radius:10px;padding:20px;margin:18px 0;background:#f7fbf9}
+.tool-box h2{margin-top:0}
+label{display:block;font-weight:700;margin:12px 0 6px}
+input,select{width:100%;padding:12px;border:1px solid #b0bec5;border-radius:8px;font-size:1rem}
+button,.btn{display:inline-block;background:#0b6e4f;color:#ffffff;border:none;border-radius:8px;padding:13px 20px;font-weight:700;font-size:1rem;cursor:pointer;text-decoration:none;margin-top:12px}
+button:hover,.btn:hover{background:#095c42}
+.company-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+.company-card{border:1px solid #dbe4ec;border-radius:10px;padding:18px}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.95rem}
+th,td{border:1px solid #dbe4ec;padding:9px;text-align:left}
+th{background:#eef7f2}
+.callout{border-left:4px solid #0b6e4f;background:#f7fbf9;padding:14px 16px;margin:16px 0}
+.warning{border-left:4px solid #c0392b;background:#fdf2f2;padding:14px 16px;margin:16px 0}
+.faq details{border:1px solid #dbe4ec;border-radius:8px;margin-bottom:10px;padding:12px}
+.faq summary{font-weight:700;cursor:pointer}
+footer{border-top:3px solid #0b6e4f;margin-top:36px;padding:22px 0 30px;color:#555555;font-size:.9rem}
+footer a{color:#0b6e4f}
+@media(max-width:640px){
+  body{font-size:16px}
+  .hero h1{font-size:1.55rem}
+  .company-cards{grid-template-columns:1fr}
+  table{font-size:.88rem}
+}
