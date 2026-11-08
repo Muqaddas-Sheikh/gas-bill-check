@@ -19,6 +19,9 @@ header .wrap{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-con
 nav.nav{display:flex;flex-wrap:wrap;gap:8px;font-size:.95rem}
 nav.nav a{color:#dbe7ff;padding:8px 12px;border-radius:999px}
 nav.nav a:hover,nav.nav a.active{background:rgba(255,255,255,.16);color:#fff;text-decoration:none}
+/* Hamburger: hidden on desktop, shown on mobile */
+.menu-toggle{display:none;background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:10px;padding:10px 14px;font-size:1.35rem;line-height:1;cursor:pointer;box-shadow:none;margin:0;min-width:48px;min-height:48px}
+.menu-toggle:hover{background:rgba(255,255,255,.28)}
 /* Hero */
 .hero{background:linear-gradient(180deg,#eaf1ff,#ffffff);padding:36px 0 18px;border-bottom:1px solid var(--line)}
 .hero h1{font-size:2.15rem;line-height:1.25;margin-bottom:12px;color:var(--blue-dark)}
@@ -56,11 +59,21 @@ tr:last-child td{border-bottom:none}
 footer,footer.site-footer{background:var(--blue-dark);color:#cfe0ff;margin-top:44px;padding:28px 0 34px;font-size:.92rem}
 footer a,footer.site-footer a{color:#fff}
 footer p,footer.site-footer p{color:#cfe0ff}
-@media(max-width:640px){
+/* Mobile: hamburger menu + full-width tap targets + scrollable tables */
+@media(max-width:768px){
   body{font-size:16px}
+  .wrap{padding:0 14px}
+  header.site-header{position:sticky}
+  header .wrap{flex-wrap:nowrap}
+  .logo{font-size:1.2rem}
+  .menu-toggle{display:block}
+  nav.nav{display:none;flex-direction:column;width:100%;gap:2px;background:var(--blue-dark);padding:6px 0 12px}
+  nav.nav.open{display:flex}
+  nav.nav a{display:block;padding:13px 14px;border-radius:10px;min-height:48px}
+  .hero{padding:26px 0 12px}
   .hero h1{font-size:1.65rem}
   .company-cards{grid-template-columns:1fr}
   .tool-box{padding:20px}
-  table{font-size:.88rem}
+  input,select,button,.btn{min-height:48px}
+  table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;font-size:.88rem}
 }
-
