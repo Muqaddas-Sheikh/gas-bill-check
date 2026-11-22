@@ -11,7 +11,34 @@
 <header class="site-header"><div class="wrap"><a class="logo" href="index.html">Gas<span>Bill</span>Check</a><button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu">&#9776;</button><nav class="nav" id="main-nav"><a href="index.html">Home</a><a href="calculator.html">Calculator</a><a href="sngpl-bill.html">SNGPL</a><a href="ssgc-bill.html">SSGC</a><a href="guides.html">Guides</a></nav></div></header>
 <div class="lang-bar"><div class="wrap"><span class="lang-label">Read in Urdu / اردو میں پڑھیں:</span><div id="google_translate_element"></div></div></div>
 <div class="hero"><div class="wrap"><h1>Gas Bill Check Sargodha</h1><p>This guide explains sui gas bill online check Sargodha step by step, so households in the city can view their bill online even when the paper copy goes astray.</p></div></div>
-<main class="wrap"><section class="block">
+<main class="wrap">
+<section class="tool-box"><h2>Check Your Gas Bill</h2><p>Select your company and enter your bill number. This checker only validates the length of the number and opens the official portal. It does not retrieve or display your bill itself. You will enter your details on the official website.</p>
+<form id="checkerForm"><label for="company">Gas company</label><select id="company" name="company"><option value="sngpl" selected>SNGPL — Punjab, Khyber Pakhtunkhwa, Islamabad, Azad Jammu and Kashmir</option><option value="ssgc">SSGC — Sindh, Balochistan</option></select>
+<label for="billNumber">Bill number</label><input id="billNumber" name="billNumber" type="text" inputmode="numeric" placeholder="SNGPL: 11 digits / SSGC: 10 digits" autocomplete="off">
+<p id="checkerMsg" role="alert"></p><button type="submit">Open Official Portal</button></form>
+<p><small>Hint: SNGPL numbers have 11 digits. SSGC numbers have 10 digits. Keep your printed bill beside you so you can copy the number carefully.</small></p></section>
+<script>
+document.getElementById('checkerForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var company = document.getElementById('company').value;
+  var raw = document.getElementById('billNumber').value || '';
+  var digits = raw.replace(/\D/g, '');
+  var msg = document.getElementById('checkerMsg');
+  var expected = company === 'sngpl' ? 11 : 10;
+  if (digits.length !== expected) {
+    msg.textContent = 'Please check the number: ' + (company === 'sngpl' ? 'SNGPL' : 'SSGC') + ' numbers must be exactly ' + expected + ' digits. You entered ' + digits.length + ' digit(s).';
+    msg.style.color = '#c0392b';
+    return;
+  }
+  msg.textContent = 'Number length looks correct. Opening the official portal — please enter your number again there to view your bill.';
+  msg.style.color = '#0b6e4f';
+  var url = company === 'sngpl' ? 'https://www.sngpl.com.pk' : 'https://www.ssgc.com.pk';
+  window.open(url, '_blank', 'noopener');
+});
+document.getElementById('company').addEventListener('change', function () {
+  document.getElementById('checkerMsg').textContent = '';
+});
+</script><section class="block">
 <p>Sargodha sits beside Islamabad, and many of its residents commute daily between the two cities. Homes here range from old houses in Saddar and the inner city to flats and new societies on the city's edges. With so much daily movement, a bill that can be checked on a phone during a commute is far more practical than one that depends on being home when the post arrives. This page explains which company serves Sargodha, what number you need, and the problems local households meet most.</p>
 <h2>Which Company Serves Sargodha?</h2>
 <p>Sargodha is served by Sui Northern Gas Pipelines Limited, or SNGPL. SNGPL supplies Punjab, Khyber Pakhtunkhwa, Islamabad and Azad Jammu and Kashmir, and Sargodha is one of its Punjab cities. Your Sargodha gas bill is therefore an SNGPL bill, checked through the SNGPL portal, not the SSGC portal used in Sindh and Balochistan.</p>

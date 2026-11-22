@@ -11,7 +11,34 @@
 <header class="site-header"><div class="wrap"><a class="logo" href="index.html">Gas<span>Bill</span>Check</a><button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu">&#9776;</button><nav class="nav" id="main-nav"><a href="index.html">Home</a><a href="calculator.html">Calculator</a><a href="sngpl-bill.html">SNGPL</a><a href="ssgc-bill.html">SSGC</a><a href="guides.html">Guides</a></nav></div></header>
 <div class="lang-bar"><div class="wrap"><span class="lang-label">Read in Urdu / اردو میں پڑھیں:</span><div id="google_translate_element"></div></div></div>
 <div class="hero"><div class="wrap"><h1>SSGC Bill Check Online Sukkur</h1><p>This guide explains ssgc bill check online Sukkur step by step, so households in the city can view their bill online even when the paper copy is delayed.</p></div></div>
-<main class="wrap"><section class="block">
+<main class="wrap">
+<section class="tool-box"><h2>Check Your Gas Bill</h2><p>Select your company and enter your bill number. This checker only validates the length of the number and opens the official portal. It does not retrieve or display your bill itself. You will enter your details on the official website.</p>
+<form id="checkerForm"><label for="company">Gas company</label><select id="company" name="company"><option value="sngpl">SNGPL — Punjab, Khyber Pakhtunkhwa, Islamabad, Azad Jammu and Kashmir</option><option value="ssgc" selected>SSGC — Sindh, Balochistan</option></select>
+<label for="billNumber">Bill number</label><input id="billNumber" name="billNumber" type="text" inputmode="numeric" placeholder="SNGPL: 11 digits / SSGC: 10 digits" autocomplete="off">
+<p id="checkerMsg" role="alert"></p><button type="submit">Open Official Portal</button></form>
+<p><small>Hint: SNGPL numbers have 11 digits. SSGC numbers have 10 digits. Keep your printed bill beside you so you can copy the number carefully.</small></p></section>
+<script>
+document.getElementById('checkerForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var company = document.getElementById('company').value;
+  var raw = document.getElementById('billNumber').value || '';
+  var digits = raw.replace(/\D/g, '');
+  var msg = document.getElementById('checkerMsg');
+  var expected = company === 'sngpl' ? 11 : 10;
+  if (digits.length !== expected) {
+    msg.textContent = 'Please check the number: ' + (company === 'sngpl' ? 'SNGPL' : 'SSGC') + ' numbers must be exactly ' + expected + ' digits. You entered ' + digits.length + ' digit(s).';
+    msg.style.color = '#c0392b';
+    return;
+  }
+  msg.textContent = 'Number length looks correct. Opening the official portal — please enter your number again there to view your bill.';
+  msg.style.color = '#0b6e4f';
+  var url = company === 'sngpl' ? 'https://www.sngpl.com.pk' : 'https://www.ssgc.com.pk';
+  window.open(url, '_blank', 'noopener');
+});
+document.getElementById('company').addEventListener('change', function () {
+  document.getElementById('checkerMsg').textContent = '';
+});
+</script><section class="block">
 <p>Sukkur is a smaller city on the Indus, closely linked with Rohri across the river, and its households are spread between the old city, newer colonies and settlements on the outskirts. In a smaller city, a delayed paper bill can still cause real trouble, because payment points and company offices may be fewer and further apart. Online checking avoids a wasted trip: you can confirm the amount first, then pay with confidence. This page explains which company serves Sukkur, what number you need, and the problems local households face most.</p>
 <h2>Which Company Serves Sukkur?</h2>
 <p>Sukkur is served by Sui Southern Gas Company, known as SSGC. SSGC supplies Sindh and Balochistan, and Sukkur is one of its northern Sindh cities. Your Sukkur gas bill is therefore an SSGC bill, checked through the SSGC portal, not the SNGPL portal used in Punjab and the north.</p>

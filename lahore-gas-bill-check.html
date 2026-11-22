@@ -11,7 +11,34 @@
 <header class="site-header"><div class="wrap"><a class="logo" href="index.html">Gas<span>Bill</span>Check</a><button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu">&#9776;</button><nav class="nav" id="main-nav"><a href="index.html">Home</a><a href="calculator.html">Calculator</a><a href="sngpl-bill.html">SNGPL</a><a href="ssgc-bill.html">SSGC</a><a href="guides.html">Guides</a></nav></div></header>
 <div class="lang-bar"><div class="wrap"><span class="lang-label">Read in Urdu / اردو میں پڑھیں:</span><div id="google_translate_element"></div></div></div>
 <div class="hero"><div class="wrap"><h1>Sui Gas Bill Online Check Lahore</h1><p>This guide explains sui gas bill online check Lahore step by step, so you can view your current bill without waiting for the paper copy to reach your door.</p></div></div>
-<main class="wrap"><section class="block">
+<main class="wrap">
+<section class="tool-box"><h2>Check Your Gas Bill</h2><p>Select your company and enter your bill number. This checker only validates the length of the number and opens the official portal. It does not retrieve or display your bill itself. You will enter your details on the official website.</p>
+<form id="checkerForm"><label for="company">Gas company</label><select id="company" name="company"><option value="sngpl" selected>SNGPL — Punjab, Khyber Pakhtunkhwa, Islamabad, Azad Jammu and Kashmir</option><option value="ssgc">SSGC — Sindh, Balochistan</option></select>
+<label for="billNumber">Bill number</label><input id="billNumber" name="billNumber" type="text" inputmode="numeric" placeholder="SNGPL: 11 digits / SSGC: 10 digits" autocomplete="off">
+<p id="checkerMsg" role="alert"></p><button type="submit">Open Official Portal</button></form>
+<p><small>Hint: SNGPL numbers have 11 digits. SSGC numbers have 10 digits. Keep your printed bill beside you so you can copy the number carefully.</small></p></section>
+<script>
+document.getElementById('checkerForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var company = document.getElementById('company').value;
+  var raw = document.getElementById('billNumber').value || '';
+  var digits = raw.replace(/\D/g, '');
+  var msg = document.getElementById('checkerMsg');
+  var expected = company === 'sngpl' ? 11 : 10;
+  if (digits.length !== expected) {
+    msg.textContent = 'Please check the number: ' + (company === 'sngpl' ? 'SNGPL' : 'SSGC') + ' numbers must be exactly ' + expected + ' digits. You entered ' + digits.length + ' digit(s).';
+    msg.style.color = '#c0392b';
+    return;
+  }
+  msg.textContent = 'Number length looks correct. Opening the official portal — please enter your number again there to view your bill.';
+  msg.style.color = '#0b6e4f';
+  var url = company === 'sngpl' ? 'https://www.sngpl.com.pk' : 'https://www.ssgc.com.pk';
+  window.open(url, '_blank', 'noopener');
+});
+document.getElementById('company').addEventListener('change', function () {
+  document.getElementById('checkerMsg').textContent = '';
+});
+</script><section class="block">
 <p>Lahore is a large, fast-growing city, and its homes range from old houses in the inner city to new housing societies on the outskirts. Whatever part of the city you live in, the online method is the same: you use your consumer number on the official portal of the company that supplies your area. This page walks you through that process, explains what to do when the paper bill is late, and covers the problems Lahore households run into most often.</p>
 <h2>Which Company Serves Lahore?</h2>
 <p>Lahore is served by Sui Northern Gas Pipelines Limited, known as SNGPL. SNGPL supplies natural gas across Punjab, Khyber Pakhtunkhwa, Islamabad and Azad Jammu and Kashmir. If your home is connected to the piped gas network in Lahore, your bill is an SNGPL bill, not an SSGC bill. This matters because the two companies run separate portals, and entering an SNGPL number on the SSGC portal, or the other way round, will not return your bill.</p>
