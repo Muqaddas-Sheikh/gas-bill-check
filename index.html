@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="styles.css"></head><body>
 <header class="site-header"><div class="wrap"><a class="logo" href="index.html">Gas<span>Bill</span>Check</a><button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu">&#9776;</button><nav class="nav" id="main-nav"><a href="index.html">Home</a><a href="calculator.html">Calculator</a><a href="sngpl-bill.html">SNGPL Bill</a><a href="ssgc-bill.html">SSGC Bill</a><a href="guides.html">Guides</a></nav></div></header>
 <div class="lang-bar"><div class="wrap"><span class="lang-label">Read in Urdu / اردو میں پڑھیں:</span><div id="google_translate_element"></div></div></div>
-<div class="hero"><div class="wrap"><h1>Gas Bill Check Online</h1><p>Welcome to an independent help centre for gas bill check online in Pakistan. This site explains, in plain steps, how to find your gas company, confirm the length of your bill number, and reach the official portal where your bill is shown. It does not issue bills and it does not replace the official record.</p></div></div>
+<div class="hero"><div class="wrap"><h1>Gas Bill Check Online</h1><p>Check your SNGPL or SSGC gas bill online in Pakistan — pick your company below, enter your bill number, and open the official portal.</p><div class="company-buttons"><button type="button" class="company-btn sngpl" data-company="sngpl">SNGPL<span>Punjab, KPK, Islamabad &amp; AJK — 11 digits</span></button><button type="button" class="company-btn ssgc" data-company="ssgc">SSGC<span>Sindh &amp; Balochistan — 10 digits</span></button></div></div></div>
 <main class="wrap">
 <section class="tool-box"><h2>Check Your Gas Bill</h2><p>Select your company and enter your bill number. This checker only validates the length of the number and opens the official portal. It does not retrieve or display your bill itself. You will enter your details on the official website.</p>
 <form id="checkerForm"><label for="company">Gas company</label><select id="company" name="company"><option value="sngpl">SNGPL — Punjab, Khyber Pakhtunkhwa, Islamabad, Azad Jammu and Kashmir</option><option value="ssgc">SSGC — Sindh, Balochistan</option></select>
@@ -38,7 +38,16 @@ document.getElementById('checkerForm').addEventListener('submit', function (e) {
 document.getElementById('company').addEventListener('change', function () {
   document.getElementById('checkerMsg').textContent = '';
 });
+document.querySelectorAll('.company-btn').forEach(function (b) {
+  b.addEventListener('click', function () {
+    document.getElementById('company').value = b.getAttribute('data-company');
+    document.getElementById('checkerMsg').textContent = '';
+    document.getElementById('checkerForm').scrollIntoView({behavior: 'smooth', block: 'start'});
+    document.getElementById('billNumber').focus({preventScroll: true});
+  });
+});
 </script>
+<section class="quick-cards"><a class="quick-card" href="sui-gas-bill-duplicate.html"><h3>Duplicate Bill</h3><p>Paper bill lost or late? Get your duplicate bill online in a few steps.</p></a><a class="quick-card" href="sui-gas-bill-payment-methods.html"><h3>Payment Methods</h3><p>Pay by JazzCash, Easypaisa, bank app or at the bank — and keep your proof.</p></a><a class="quick-card" href="sui-gas-bill-charges-explained.html"><h3>Tariff &amp; Charges</h3><p>What FPA, GIDC, GST and fixed charges mean on your gas bill, in plain words.</p></a></section>
 <section class="block"><h2>Which Company Supplies Your Gas?</h2><p>Pakistan has two main piped-gas suppliers, and the right portal depends on where you live. Choosing the wrong company is the most common reason a bill search fails, so start here before you type anything.</p>
 <div class="company-cards"><div class="company-card"><h3>SNGPL</h3><p>Sui Northern Gas Pipelines Limited serves Punjab, Khyber Pakhtunkhwa, Islamabad and Azad Jammu and Kashmir. Its bill number, often called the Consumer Number or Account ID, has 11 digits.</p><p><a href="sngpl-bill.html">SNGPL bill check online</a></p></div>
 <div class="company-card"><h3>SSGC</h3><p>Sui Southern Gas Company serves Sindh and Balochistan. Its bill number, often called the Customer Number, has 10 digits.</p><p><a href="ssgc-bill.html">SSGC bill check online</a></p></div></div>

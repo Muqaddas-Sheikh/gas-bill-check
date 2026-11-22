@@ -86,3 +86,21 @@ footer p,footer.site-footer p{color:#cfe0ff}
 #google_translate_element .goog-te-gadget-simple .goog-te-menu-value span{color:#0b2a6b}
 .goog-te-banner-frame.skiptranslate{display:none!important}
 body{top:0!important}
+
+/* Homepage: big company buttons + quick cards */
+.company-buttons{display:flex;gap:14px;flex-wrap:wrap;margin:18px 0 6px}
+.company-btn{flex:1 1 240px;text-align:left;padding:18px 20px;border-radius:14px;font-size:1.15rem;margin-top:0}
+.company-btn span{display:block;font-size:.9rem;font-weight:400;opacity:.92;margin-top:4px}
+.company-btn.ssgc{background:var(--green)}
+.company-btn.ssgc:hover{background:#095c42}
+.quick-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:26px 0}
+.quick-card{display:block;background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 8px 24px rgba(18,58,143,.08);color:var(--ink)}
+.quick-card:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(18,58,143,.14);text-decoration:none}
+.quick-card h3{margin-top:0}
+.quick-card p{color:var(--muted);margin-bottom:0}
+@media(max-width:768px){
+  .quick-cards{grid-template-columns:1fr}
+  .company-btn{flex:1 1 100%}
+  #checkerForm input,#checkerForm select{padding:16px;font-size:1.05rem;min-height:56px}
+  #checkerForm button{min-height:56px;font-size:1.1rem;width:100%}
+}
