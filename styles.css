@@ -77,3 +77,12 @@ footer p,footer.site-footer p{color:#cfe0ff}
   input,select,button,.btn{min-height:48px}
   table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;font-size:.88rem}
 }
+
+/* Language switcher (Urdu translate button) */
+.lang-bar{background:#eef4ff;border-bottom:1px solid #d7e3f8;padding:8px 0;font-size:.92rem}
+.lang-bar .wrap{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex-wrap:wrap}
+.lang-label{color:#0b2a6b;font-weight:600}
+#google_translate_element .goog-te-gadget-simple{border:1px solid #b9cdf3;border-radius:999px;padding:5px 10px;background:#fff;font-size:.9rem}
+#google_translate_element .goog-te-gadget-simple .goog-te-menu-value span{color:#0b2a6b}
+.goog-te-banner-frame.skiptranslate{display:none!important}
+body{top:0!important}
